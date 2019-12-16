@@ -1,19 +1,23 @@
 import os
 
+import test_file
+
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 NEW_DATE = '20191216'
 STR_START = 27
 STR_END = 35
-def main():
-    
+FILES_PATH = '/home/marchi/Documents/files/'
+
+
+def main():    
     file_iterator()
-    
+    test_file.check_files()
     
 
 def file_iterator():
     print('getting files names from folder')
-    for file in os.listdir("/home/marchi/Documents/files/"):    
-        file_path = os.path.join("/home/marchi/Documents/files/", file)             
+    for file in os.listdir(FILES_PATH):    
+        file_path = os.path.join(FILES_PATH, file)             
         if os.path.isdir(file_path):
             continue
         line = get_line_from_file(file_path)    
@@ -46,19 +50,6 @@ def write_line_to_file(new_line, file_path):
     f = open(my_file, "w")
     f.write(new_line)
     f.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__=="__main__":
     main()

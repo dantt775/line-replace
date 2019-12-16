@@ -1,11 +1,11 @@
 import os
-from main import NEW_DATE, STR_START,STR_END, get_line_from_file
+from main import NEW_DATE, STR_START,STR_END, FILES_PATH, get_line_from_file
 
 
 def check_files():    
     print('Checking files')
-    for file in os.listdir("/home/marchi/Documents/files/"):    
-        file_path = os.path.join("/home/marchi/Documents/files/", file)     
+    for file in os.listdir(FILES_PATH):    
+        file_path = os.path.join(FILES_PATH, file)     
         if os.path.isdir(file_path):
             continue   
         line = get_line_from_file(file_path)                    
